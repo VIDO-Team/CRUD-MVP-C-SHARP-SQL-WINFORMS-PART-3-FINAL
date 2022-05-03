@@ -31,11 +31,13 @@ namespace CRUDWinFormsMVP.Views
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPets = new System.Windows.Forms.Button();
+            this.btnFQA = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnFQA);
             this.panel1.Controls.Add(this.btnPets);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -52,6 +54,17 @@ namespace CRUDWinFormsMVP.Views
             this.btnPets.TabIndex = 0;
             this.btnPets.Text = "Pets";
             this.btnPets.UseVisualStyleBackColor = true;
+            this.btnPets.Visible = false;
+            // 
+            // btnFQA
+            // 
+            this.btnFQA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFQA.Location = new System.Drawing.Point(2, 12);
+            this.btnFQA.Name = "btnFQA";
+            this.btnFQA.Size = new System.Drawing.Size(197, 37);
+            this.btnFQA.TabIndex = 1;
+            this.btnFQA.Text = "FQA";
+            this.btnFQA.UseVisualStyleBackColor = true;
             // 
             // MainView
             // 
@@ -72,5 +85,6 @@ namespace CRUDWinFormsMVP.Views
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnPets;
+        private System.Windows.Forms.Button btnFQA;
     }
 }

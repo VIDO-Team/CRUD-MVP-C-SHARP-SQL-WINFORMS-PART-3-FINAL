@@ -16,8 +16,10 @@ namespace CRUDWinFormsMVP.Views
         {
             InitializeComponent();
             btnPets.Click += delegate { ShowPetView?.Invoke(this, EventArgs.Empty); };
+            btnFQA.Click += delegate { ShowFQAView?.Invoke(this, EventArgs.Empty); };
         }
 
+        public event EventHandler ShowFQAView;
         public event EventHandler ShowPetView;
         public event EventHandler ShowOwnerView;
         public event EventHandler ShowVetsView;
