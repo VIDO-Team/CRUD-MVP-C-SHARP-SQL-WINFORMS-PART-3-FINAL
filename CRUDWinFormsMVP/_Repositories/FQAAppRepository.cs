@@ -58,7 +58,34 @@ namespace CRUDWinFormsMVP._Repositories
 
         public IEnumerable<FQAAppModel> GetByValue(string value)
         {
-            throw new NotImplementedException();
+            var faqAppList = new List<FQAAppModel>();
+            string answers = value;
+            string question = value;
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"Select *from FAQApp
+                                        where Answers like @answers+'%' or Question like @question+'%' 
+                                        order by Id desc";
+                command.Parameters.Add("@answers", SqlDbType.NVarChar).Value = answers;
+                command.Parameters.Add("@question", SqlDbType.NVarChar).Value = question;
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var fqaAppModel = new FQAAppModel();
+                        fqaAppModel.Answers = reader[0].ToString();
+                        fqaAppModel.Question = reader[1].ToString();
+                        fqaAppModel.ID = (int)reader[2];
+                        fqaAppModel.QuestionType = (int)reader[3];
+                        faqAppList.Add(fqaAppModel);
+                    }
+                }
+            }
+            return faqAppList;
         }
         //...
     }
