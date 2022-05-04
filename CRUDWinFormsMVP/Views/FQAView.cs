@@ -36,12 +36,12 @@ namespace CRUDWinFormsMVP.Views
                       SearchEvent?.Invoke(this, EventArgs.Empty);
               };
             //Add new
-            btnAddNew.Click += delegate
+            btnSearchFQA.Click += delegate
             {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabPageFQAList);
                 tabControl1.TabPages.Add(tabPageFQADetail);
-                tabPageFQADetail.Text = "Add new fqa";
+                tabPageFQADetail.Text = "Search FQA";
             };
             //Edit
             btnEdit.Click += delegate
@@ -52,7 +52,7 @@ namespace CRUDWinFormsMVP.Views
                 tabPageFQADetail.Text = "Edit fqa";
             };
             //Save changes
-            btnSave.Click += delegate
+            btnSearch1.Click += delegate
             {
                 SaveEvent?.Invoke(this, EventArgs.Empty);
                 if (isSuccessful)
@@ -85,27 +85,27 @@ namespace CRUDWinFormsMVP.Views
         //Properties
         public string PetId
         {
-            get { return txtPetId.Text; }
-            set { txtPetId.Text = value; }
+            get { return txtId.Text; }
+            set { txtId.Text = value; }
         }
 
         public string PetName
         {
-            get { return txtPetName.Text; }
-            set { txtPetName.Text = value; }
+            get { return txtquestion.Text; }
+            set { txtquestion.Text = value; }
         }
 
         public string PetType
         {
-            get { return txtPetType.Text; }
-            set { txtPetType.Text = value; }
+            get { return txtquestion.Text; }
+            set { txtquestion.Text = value; }
         }
 
-        public string PetColour
-        {
-            get { return txtPetColour.Text; }
-            set { txtPetColour.Text = value; }
-        }
+        //public string PetColour
+        //{
+        //    get { return txtPetColour.Text; }
+        //    set { txtPetColour.Text = value; }
+        //}
 
         public string SearchValue
         {
@@ -178,6 +178,46 @@ namespace CRUDWinFormsMVP.Views
         public void SetFQAAppListBindingSource(BindingSource fqaAppList)
         {
             dataGridView.DataSource = fqaAppList;
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

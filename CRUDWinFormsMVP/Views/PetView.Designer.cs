@@ -66,7 +66,7 @@ namespace CRUDWinFormsMVP.Views
             this.label1.Location = new System.Drawing.Point(53, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 25);
+            this.label1.Size = new System.Drawing.Size(79, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "PETS";
             // 
@@ -112,10 +112,10 @@ namespace CRUDWinFormsMVP.Views
             this.tabPagePetList.Controls.Add(this.btnSearch);
             this.tabPagePetList.Controls.Add(this.txtSearch);
             this.tabPagePetList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPagePetList.Location = new System.Drawing.Point(4, 29);
+            this.tabPagePetList.Location = new System.Drawing.Point(4, 34);
             this.tabPagePetList.Name = "tabPagePetList";
             this.tabPagePetList.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePetList.Size = new System.Drawing.Size(884, 378);
+            this.tabPagePetList.Size = new System.Drawing.Size(884, 373);
             this.tabPagePetList.TabIndex = 0;
             this.tabPagePetList.Text = "Pet list";
             this.tabPagePetList.UseVisualStyleBackColor = true;
@@ -131,6 +131,7 @@ namespace CRUDWinFormsMVP.Views
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(24, 63);
             this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(737, 307);
             this.dataGridView.TabIndex = 7;
@@ -141,7 +142,7 @@ namespace CRUDWinFormsMVP.Views
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(20, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 20);
+            this.label2.Size = new System.Drawing.Size(113, 25);
             this.label2.TabIndex = 5;
             this.label2.Text = "Search pet:";
             // 
@@ -191,7 +192,7 @@ namespace CRUDWinFormsMVP.Views
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Location = new System.Drawing.Point(24, 31);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(638, 26);
+            this.txtSearch.Size = new System.Drawing.Size(638, 30);
             this.txtSearch.TabIndex = 0;
             // 
             // tabPagePetDetail
@@ -207,10 +208,10 @@ namespace CRUDWinFormsMVP.Views
             this.tabPagePetDetail.Controls.Add(this.label3);
             this.tabPagePetDetail.Controls.Add(this.txtPetId);
             this.tabPagePetDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPagePetDetail.Location = new System.Drawing.Point(4, 29);
+            this.tabPagePetDetail.Location = new System.Drawing.Point(4, 34);
             this.tabPagePetDetail.Name = "tabPagePetDetail";
             this.tabPagePetDetail.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePetDetail.Size = new System.Drawing.Size(884, 378);
+            this.tabPagePetDetail.Size = new System.Drawing.Size(884, 373);
             this.tabPagePetDetail.TabIndex = 1;
             this.tabPagePetDetail.Text = "Pet detail";
             this.tabPagePetDetail.UseVisualStyleBackColor = true;
@@ -239,7 +240,7 @@ namespace CRUDWinFormsMVP.Views
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(59, 175);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 20);
+            this.label6.Size = new System.Drawing.Size(105, 25);
             this.label6.TabIndex = 13;
             this.label6.Text = "Pet colour:";
             // 
@@ -247,7 +248,7 @@ namespace CRUDWinFormsMVP.Views
             // 
             this.txtPetColour.Location = new System.Drawing.Point(63, 198);
             this.txtPetColour.Name = "txtPetColour";
-            this.txtPetColour.Size = new System.Drawing.Size(380, 29);
+            this.txtPetColour.Size = new System.Drawing.Size(380, 34);
             this.txtPetColour.TabIndex = 12;
             // 
             // label5
@@ -256,7 +257,7 @@ namespace CRUDWinFormsMVP.Views
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(256, 102);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 20);
+            this.label5.Size = new System.Drawing.Size(89, 25);
             this.label5.TabIndex = 11;
             this.label5.Text = "Pet type:";
             // 
@@ -264,7 +265,7 @@ namespace CRUDWinFormsMVP.Views
             // 
             this.txtPetType.Location = new System.Drawing.Point(260, 125);
             this.txtPetType.Name = "txtPetType";
-            this.txtPetType.Size = new System.Drawing.Size(183, 29);
+            this.txtPetType.Size = new System.Drawing.Size(183, 34);
             this.txtPetType.TabIndex = 10;
             // 
             // label4
@@ -273,7 +274,7 @@ namespace CRUDWinFormsMVP.Views
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(59, 102);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 20);
+            this.label4.Size = new System.Drawing.Size(101, 25);
             this.label4.TabIndex = 9;
             this.label4.Text = "Pet name:";
             // 
@@ -281,7 +282,7 @@ namespace CRUDWinFormsMVP.Views
             // 
             this.txtPetName.Location = new System.Drawing.Point(63, 125);
             this.txtPetName.Name = "txtPetName";
-            this.txtPetName.Size = new System.Drawing.Size(154, 29);
+            this.txtPetName.Size = new System.Drawing.Size(154, 34);
             this.txtPetName.TabIndex = 8;
             // 
             // label3
@@ -290,22 +291,23 @@ namespace CRUDWinFormsMVP.Views
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(59, 31);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 20);
+            this.label3.Size = new System.Drawing.Size(71, 25);
             this.label3.TabIndex = 7;
             this.label3.Text = "Pet ID:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtPetId
             // 
             this.txtPetId.Location = new System.Drawing.Point(63, 54);
             this.txtPetId.Name = "txtPetId";
             this.txtPetId.ReadOnly = true;
-            this.txtPetId.Size = new System.Drawing.Size(154, 29);
+            this.txtPetId.Size = new System.Drawing.Size(154, 34);
             this.txtPetId.TabIndex = 6;
             this.txtPetId.Text = "0";
             // 
             // PetView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(892, 467);
             this.Controls.Add(this.tabControl1);
