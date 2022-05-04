@@ -180,44 +180,5 @@ namespace CRUDWinFormsMVP.Views
             dataGridView.DataSource = fqaAppList;
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAddNew_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void txtId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

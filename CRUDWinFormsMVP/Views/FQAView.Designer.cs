@@ -201,9 +201,8 @@ namespace CRUDWinFormsMVP.Views
             this.btnSearchFQA.Name = "btnSearchFQA";
             this.btnSearchFQA.Size = new System.Drawing.Size(198, 30);
             this.btnSearchFQA.TabIndex = 2;
-            this.btnSearchFQA.Text = "Search FQA";
+            this.btnSearchFQA.Text = "Add FQA";
             this.btnSearchFQA.UseVisualStyleBackColor = true;
-            this.btnSearchFQA.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // btnSearch
             // 
@@ -304,7 +303,6 @@ namespace CRUDWinFormsMVP.Views
             this.label4.Size = new System.Drawing.Size(97, 25);
             this.label4.TabIndex = 9;
             this.label4.Text = "Question:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtquestion
             // 
@@ -331,7 +329,6 @@ namespace CRUDWinFormsMVP.Views
             this.txtId.Size = new System.Drawing.Size(154, 34);
             this.txtId.TabIndex = 6;
             this.txtId.Text = "0";
-            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
             // tabPage1
             // 
@@ -353,7 +350,6 @@ namespace CRUDWinFormsMVP.Views
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Add Question";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // label9
             // 
@@ -364,7 +360,6 @@ namespace CRUDWinFormsMVP.Views
             this.label9.Size = new System.Drawing.Size(99, 29);
             this.label9.TabIndex = 23;
             this.label9.Text = "Answer:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // dgvans
             // 
@@ -388,7 +383,6 @@ namespace CRUDWinFormsMVP.Views
             this.btncancel1.TabIndex = 20;
             this.btncancel1.Text = "Cancel";
             this.btncancel1.UseVisualStyleBackColor = true;
-            this.btncancel1.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnadd
             // 
@@ -456,7 +450,6 @@ namespace CRUDWinFormsMVP.Views
             this.label6.Size = new System.Drawing.Size(37, 25);
             this.label6.TabIndex = 8;
             this.label6.Text = "ID:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // tbAnswer
             // 
