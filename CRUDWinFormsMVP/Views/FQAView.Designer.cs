@@ -43,6 +43,8 @@ namespace CRUDWinFormsMVP.Views
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.tabPageFQADetail = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cboxquestiontype1 = new System.Windows.Forms.ComboBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSearch1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -50,21 +52,19 @@ namespace CRUDWinFormsMVP.Views
             this.txtquestion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.cboxquestiontype1 = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textId = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textquestion = new System.Windows.Forms.TextBox();
-            this.cboxquestiontype = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnadd = new System.Windows.Forms.Button();
-            this.btncancel1 = new System.Windows.Forms.Button();
-            this.dgvans = new System.Windows.Forms.DataGridView();
-            this.listviewans = new System.Windows.Forms.ListView();
             this.label9 = new System.Windows.Forms.Label();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.label10 = new System.Windows.Forms.Label();
+            this.dgvans = new System.Windows.Forms.DataGridView();
+            this.btncancel1 = new System.Windows.Forms.Button();
+            this.btnadd = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cboxquestiontype = new System.Windows.Forms.ComboBox();
+            this.textquestion = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textId = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbAnswer = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageFQAList.SuspendLayout();
@@ -226,8 +226,8 @@ namespace CRUDWinFormsMVP.Views
             // 
             // tabPageFQADetail
             // 
+            this.tabPageFQADetail.Controls.Add(this.tbAnswer);
             this.tabPageFQADetail.Controls.Add(this.label10);
-            this.tabPageFQADetail.Controls.Add(this.listView2);
             this.tabPageFQADetail.Controls.Add(this.cboxquestiontype1);
             this.tabPageFQADetail.Controls.Add(this.btnCancel);
             this.tabPageFQADetail.Controls.Add(this.btnSearch1);
@@ -244,6 +244,28 @@ namespace CRUDWinFormsMVP.Views
             this.tabPageFQADetail.TabIndex = 1;
             this.tabPageFQADetail.Text = "Search FQA";
             this.tabPageFQADetail.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(430, 26);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(84, 25);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Answer:";
+            // 
+            // cboxquestiontype1
+            // 
+            this.cboxquestiontype1.FormattingEnabled = true;
+            this.cboxquestiontype1.Items.AddRange(new object[] {
+            "Equals",
+            "Startwith",
+            "Contains"});
+            this.cboxquestiontype1.Location = new System.Drawing.Point(260, 181);
+            this.cboxquestiontype1.Name = "cboxquestiontype1";
+            this.cboxquestiontype1.Size = new System.Drawing.Size(153, 37);
+            this.cboxquestiontype1.TabIndex = 16;
             // 
             // btnCancel
             // 
@@ -311,22 +333,10 @@ namespace CRUDWinFormsMVP.Views
             this.txtId.Text = "0";
             this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
-            // cboxquestiontype1
-            // 
-            this.cboxquestiontype1.FormattingEnabled = true;
-            this.cboxquestiontype1.Items.AddRange(new object[] {
-            "Equals",
-            "Startwith",
-            "Contains"});
-            this.cboxquestiontype1.Location = new System.Drawing.Point(260, 181);
-            this.cboxquestiontype1.Name = "cboxquestiontype1";
-            this.cboxquestiontype1.Size = new System.Drawing.Size(153, 37);
-            this.cboxquestiontype1.TabIndex = 16;
-            // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.listviewans);
             this.tabPage1.Controls.Add(this.dgvans);
             this.tabPage1.Controls.Add(this.btncancel1);
             this.tabPage1.Controls.Add(this.btnadd);
@@ -345,41 +355,60 @@ namespace CRUDWinFormsMVP.Views
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // label6
+            // label9
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(78, 35);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 25);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "ID:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(431, 31);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(99, 29);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Answer:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // textId
+            // dgvans
             // 
-            this.textId.Location = new System.Drawing.Point(81, 63);
-            this.textId.Name = "textId";
-            this.textId.ReadOnly = true;
-            this.textId.Size = new System.Drawing.Size(154, 30);
-            this.textId.TabIndex = 9;
+            this.dgvans.AllowUserToAddRows = false;
+            this.dgvans.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvans.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgvans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvans.Location = new System.Drawing.Point(436, 202);
+            this.dgvans.Name = "dgvans";
+            this.dgvans.RowHeadersWidth = 51;
+            this.dgvans.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvans.Size = new System.Drawing.Size(426, 135);
+            this.dgvans.TabIndex = 21;
             // 
-            // label7
+            // btncancel1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(76, 144);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(97, 25);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Question:";
+            this.btncancel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncancel1.Location = new System.Drawing.Point(267, 293);
+            this.btncancel1.Name = "btncancel1";
+            this.btncancel1.Size = new System.Drawing.Size(152, 44);
+            this.btncancel1.TabIndex = 20;
+            this.btncancel1.Text = "Cancel";
+            this.btncancel1.UseVisualStyleBackColor = true;
+            this.btncancel1.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textquestion
+            // btnadd
             // 
-            this.textquestion.Location = new System.Drawing.Point(81, 172);
-            this.textquestion.Name = "textquestion";
-            this.textquestion.Size = new System.Drawing.Size(154, 30);
-            this.textquestion.TabIndex = 11;
+            this.btnadd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnadd.Location = new System.Drawing.Point(83, 293);
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Size = new System.Drawing.Size(152, 44);
+            this.btnadd.TabIndex = 19;
+            this.btnadd.Text = "Add";
+            this.btnadd.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(262, 141);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(139, 25);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Question type:";
             // 
             // cboxquestiontype
             // 
@@ -393,92 +422,57 @@ namespace CRUDWinFormsMVP.Views
             this.cboxquestiontype.Size = new System.Drawing.Size(153, 33);
             this.cboxquestiontype.TabIndex = 17;
             // 
-            // label8
+            // textquestion
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(262, 141);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(139, 25);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Question type:";
+            this.textquestion.Location = new System.Drawing.Point(81, 172);
+            this.textquestion.Name = "textquestion";
+            this.textquestion.Size = new System.Drawing.Size(154, 30);
+            this.textquestion.TabIndex = 11;
             // 
-            // btnadd
+            // label7
             // 
-            this.btnadd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnadd.Location = new System.Drawing.Point(83, 293);
-            this.btnadd.Name = "btnadd";
-            this.btnadd.Size = new System.Drawing.Size(152, 44);
-            this.btnadd.TabIndex = 19;
-            this.btnadd.Text = "Add";
-            this.btnadd.UseVisualStyleBackColor = true;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(76, 144);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(97, 25);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Question:";
             // 
-            // btncancel1
+            // textId
             // 
-            this.btncancel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncancel1.Location = new System.Drawing.Point(267, 293);
-            this.btncancel1.Name = "btncancel1";
-            this.btncancel1.Size = new System.Drawing.Size(152, 44);
-            this.btncancel1.TabIndex = 20;
-            this.btncancel1.Text = "Cancel";
-            this.btncancel1.UseVisualStyleBackColor = true;
-            this.btncancel1.Click += new System.EventHandler(this.button2_Click);
+            this.textId.Location = new System.Drawing.Point(81, 63);
+            this.textId.Name = "textId";
+            this.textId.ReadOnly = true;
+            this.textId.Size = new System.Drawing.Size(154, 30);
+            this.textId.TabIndex = 9;
             // 
-            // dgvans
+            // label6
             // 
-            this.dgvans.AllowUserToAddRows = false;
-            this.dgvans.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvans.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvans.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dgvans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvans.Location = new System.Drawing.Point(436, 202);
-            this.dgvans.Name = "dgvans";
-            this.dgvans.RowHeadersWidth = 51;
-            this.dgvans.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvans.Size = new System.Drawing.Size(426, 135);
-            this.dgvans.TabIndex = 21;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(78, 35);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 25);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "ID:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // listviewans
+            // tbAnswer
             // 
-            this.listviewans.HideSelection = false;
-            this.listviewans.Location = new System.Drawing.Point(436, 63);
-            this.listviewans.Name = "listviewans";
-            this.listviewans.Size = new System.Drawing.Size(426, 133);
-            this.listviewans.TabIndex = 22;
-            this.listviewans.UseCompatibleStateImageBehavior = false;
-            this.listviewans.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.tbAnswer.Location = new System.Drawing.Point(435, 54);
+            this.tbAnswer.Multiline = true;
+            this.tbAnswer.Name = "tbAnswer";
+            this.tbAnswer.Size = new System.Drawing.Size(441, 288);
+            this.tbAnswer.TabIndex = 25;
             // 
-            // label9
+            // textBox1
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(431, 31);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 29);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "Answer:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // listView2
-            // 
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(435, 54);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(425, 288);
-            this.listView2.TabIndex = 23;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(430, 26);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 25);
-            this.label10.TabIndex = 24;
-            this.label10.Text = "Answer:";
+            this.textBox1.Location = new System.Drawing.Point(436, 63);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(426, 133);
+            this.textBox1.TabIndex = 24;
             // 
             // FQAView
             // 
@@ -540,9 +534,9 @@ namespace CRUDWinFormsMVP.Views
         private System.Windows.Forms.TextBox textId;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgvans;
-        private System.Windows.Forms.ListView listviewans;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbAnswer;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
