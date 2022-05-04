@@ -9,7 +9,7 @@ using CRUDWinFormsMVP.Models;
 
 namespace CRUDWinFormsMVP._Repositories
 {
-    public abstract class FQARepository: BaseRepository, IFQARepository
+    public  class FQARepository: BaseRepository, IFQARepository
     {
         public FQARepository(string connectionString)
         {
@@ -39,7 +39,7 @@ namespace CRUDWinFormsMVP._Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "Select *from FAQApp order by Id desc";
+                command.CommandText = "Select * from FAQApp order by Id desc";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
