@@ -20,3 +20,16 @@ D:\RJ Code Advance\Source Code C#\2022\CRUDWinFormsMVP - Parte 3\CRUDWinFormsMVP
 D:\RJ Code Advance\Source Code C#\2022\CRUDWinFormsMVP - Parte 3\CRUDWinFormsMVP\obj\Debug\CRUDWinFormsMVP.csproj.CoreCompileInputs.cache
 D:\RJ Code Advance\Source Code C#\2022\CRUDWinFormsMVP - Parte 3\CRUDWinFormsMVP\obj\Debug\CRUDWinFormsMVP.exe
 D:\RJ Code Advance\Source Code C#\2022\CRUDWinFormsMVP - Parte 3\CRUDWinFormsMVP\obj\Debug\CRUDWinFormsMVP.pdb
+E:\Thực tập\Code\New folder\CRUD-MVP-C-SHARP-SQL-WINFORMS\CRUDWinFormsMVP\bin\Debug\CRUDWinFormsMVP.exe.config
+E:\Thực tập\Code\New folder\CRUD-MVP-C-SHARP-SQL-WINFORMS\CRUDWinFormsMVP\bin\Debug\CRUDWinFormsMVP.exe
+E:\Thực tập\Code\New folder\CRUD-MVP-C-SHARP-SQL-WINFORMS\CRUDWinFormsMVP\bin\Debug\CRUDWinFormsMVP.pdb
+E:\Thực tập\Code\New folder\CRUD-MVP-C-SHARP-SQL-WINFORMS\CRUDWinFormsMVP\obj\Debug\CRUDWinFormsMVP.csproj.AssemblyReference.cache
+E:\Thực tập\Code\New folder\CRUD-MVP-C-SHARP-SQL-WINFORMS\CRUDWinFormsMVP\obj\Debug\CRUDWinFormsMVP.csproj.SuggestedBindingRedirects.cache
+E:\Thực tập\Code\New folder\CRUD-MVP-C-SHARP-SQL-WINFORMS\CRUDWinFormsMVP\obj\Debug\CRUDWinFormsMVP.Properties.Resources.resources
+E:\Thực tập\Code\New folder\CRUD-MVP-C-SHARP-SQL-WINFORMS\CRUDWinFormsMVP\obj\Debug\CRUDWinFormsMVP.Views.MainView.resources
+E:\Thực tập\Code\New folder\CRUD-MVP-C-SHARP-SQL-WINFORMS\CRUDWinFormsMVP\obj\Debug\CRUDWinFormsMVP.Views.FQAView.resources
+E:\Thực tập\Code\New folder\CRUD-MVP-C-SHARP-SQL-WINFORMS\CRUDWinFormsMVP\obj\Debug\CRUDWinFormsMVP.Views.PetView.resources
+E:\Thực tập\Code\New folder\CRUD-MVP-C-SHARP-SQL-WINFORMS\CRUDWinFormsMVP\obj\Debug\CRUDWinFormsMVP.csproj.GenerateResource.cache
+E:\Thực tập\Code\New folder\CRUD-MVP-C-SHARP-SQL-WINFORMS\CRUDWinFormsMVP\obj\Debug\CRUDWinFormsMVP.csproj.CoreCompileInputs.cache
+E:\Thực tập\Code\New folder\CRUD-MVP-C-SHARP-SQL-WINFORMS\CRUDWinFormsMVP\obj\Debug\CRUDWinFormsMVP.exe
+E:\Thực tập\Code\New folder\CRUD-MVP-C-SHARP-SQL-WINFORMS\CRUDWinFormsMVP\obj\Debug\CRUDWinFormsMVP.pdb

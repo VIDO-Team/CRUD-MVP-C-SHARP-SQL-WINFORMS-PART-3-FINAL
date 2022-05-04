@@ -8,10 +8,10 @@ namespace CRUDWinFormsMVP.Models
 {
     public interface IFQARepository
     {
-        void Add(PetModel petModel);
-        void Edit(PetModel petModel);
+        void Add(FQAModel fqaModel);
+        void Edit(FQAModel fqaModel);
         void Delete(int id);
-        IEnumerable<PetModel> GetAll();
-        IEnumerable<PetModel> GetByValue(string value);//Searchs
+        IEnumerable<FQAModel> GetAll();
+        IEnumerable<FQAModel> GetByValue(string value);//Searchs
     }
 }

@@ -12,43 +12,37 @@ namespace CRUDWinFormsMVP.Models
     {
         //Fields
         private int id;
-        private string name;
         private string type;
-        private string colour;
+        private string answers;
+        private byte stt;
 
         //Properties - Validations
-        [DisplayName("Pet ID")]
+        [DisplayName("FQA ID")]
         public int Id
         {
             get { return id; }
             set { id = value; }
         }
 
-        [DisplayName("Pet Name")]
-        [Required(ErrorMessage ="Pet name is requerid")]
-        [StringLength(50,MinimumLength =3, ErrorMessage ="Pet name must be between 3 and 50 characters")]
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
-        [DisplayName("Pet Type")]
-        [Required(ErrorMessage = "Pet type is requerid")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Pet type must be between 3 and 50 characters")]
+        [DisplayName("Type")]
         public string Type
         {
             get { return type; }
             set { type = value; }
         }
 
-        [DisplayName("Pet Colour")]
-        [Required(ErrorMessage = "Pet colour is requerid")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Pet colour must be between 3 and 50 characters")]
-        public string Colour
+        [DisplayName("Answers")]
+        public string Answers
         {
-            get { return colour; }
-            set { colour = value; }
+            get { return answers; }
+            set { answers = value; }
+        }
+        
+        [DisplayName("STT")]
+        public byte Stt
+        {
+            get { return stt; }
+            set { stt = value; }
         }
     }
 }
