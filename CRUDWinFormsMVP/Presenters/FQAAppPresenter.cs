@@ -47,10 +47,20 @@ namespace CRUDWinFormsMVP.Presenters
         private void SearchPet(object sender, EventArgs e)
         {
             bool emptyValue = string.IsNullOrWhiteSpace(this.view.SearchValue);
+            var fqaSearchAppList = new List<FQAAppModel>();
             if (emptyValue == false)
-                fqaAppList = repository.GetByValue(this.view.SearchValue);
-            else fqaAppList = repository.GetAll();
-            fqaAppsBindingSource.DataSource = fqaAppList;
+            {
+                //fqaAppList = repository.GetByValue(this.view.SearchValue);
+                fqaSearchAppList.AddRange(fqaAppList.Where(x => x.Answers.Contains(this.view.SearchValue)||x.Question.Contains(this.view.SearchValue)).ToList());
+                fqaAppsBindingSource.DataSource = fqaSearchAppList;
+            }
+            else
+            {
+                fqaAppList = repository.GetAll();
+                //fqaAppList.Any(x => x.Answers.Contains(this.view.SearchValue));
+                fqaAppsBindingSource.DataSource = fqaAppList;
+            }
+            
         }
         private void AddNewPet(object sender, EventArgs e)
         {
