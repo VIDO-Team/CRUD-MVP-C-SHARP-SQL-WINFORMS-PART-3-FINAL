@@ -31,9 +31,9 @@ namespace CRUDWinFormsMVP.Presenters
         }
         private void ShowFQAView(object sender, EventArgs e)
         {
-            IPetView view = FQAView.GetInstace((MainView)mainView);
-            IPetRepository repository = new PetRepository(sqlConnectionString);
-            new PetPresenter(view, repository);
+            IFQAAppView view = FQAView.GetInstace((MainView)mainView);
+            IFQAAppRepository repository = new FQAAppRepository(sqlConnectionString);
+            new FQAAppPresenter(view, repository);
         }
     }
 }

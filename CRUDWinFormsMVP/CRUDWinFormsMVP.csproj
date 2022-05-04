@@ -49,17 +49,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\FQADetailsModel.cs" />
+    <Compile Include="Models\FQAAppModel.cs" />
     <Compile Include="Models\IFQADetailsRepository.cs" />
+    <Compile Include="Models\IFQAAppRepository.cs" />
     <Compile Include="Models\IFQARepository.cs" />
     <Compile Include="Models\IPetRepository.cs" />
     <Compile Include="Models\FQAModel.cs" />
     <Compile Include="Models\PetModel.cs" />
     <Compile Include="Presenters\Common\ModelDataValidation.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
+    <Compile Include="Presenters\FQAAppPresenter.cs" />
     <Compile Include="Presenters\PetPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\IMainView.cs" />
+    <Compile Include="Views\IFQAAppView.cs" />
     <Compile Include="Views\IPetView.cs" />
     <Compile Include="Views\MainView.cs">
       <SubType>Form</SubType>
@@ -80,7 +84,7 @@
       <DependentUpon>PetView.cs</DependentUpon>
     </Compile>
     <Compile Include="_Repositories\BaseRepository.cs" />
-    <Compile Include="_Repositories\FQARepository.cs" />
+    <Compile Include="_Repositories\FQAAppRepository.cs" />
     <Compile Include="_Repositories\PetRepository.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

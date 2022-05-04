@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace CRUDWinFormsMVP.Views
 {
-    public partial class FQAView : Form, IPetView
+    public partial class FQAView : Form, IFQAAppView
     {
         //Fields
         private string message;
@@ -41,7 +41,7 @@ namespace CRUDWinFormsMVP.Views
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabPageFQAList);
                 tabControl1.TabPages.Add(tabPageFQADetail);
-                tabPageFQADetail.Text = "Add new pet";
+                tabPageFQADetail.Text = "Add new fqa";
             };
             //Edit
             btnEdit.Click += delegate
@@ -49,7 +49,7 @@ namespace CRUDWinFormsMVP.Views
                 EditEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabPageFQAList);
                 tabControl1.TabPages.Add(tabPageFQADetail);
-                tabPageFQADetail.Text = "Edit pet";
+                tabPageFQADetail.Text = "Edit fqa";
             };
             //Save changes
             btnSave.Click += delegate
@@ -131,6 +131,14 @@ namespace CRUDWinFormsMVP.Views
             set { message = value; }
         }
 
+        public string Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Type { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Answer { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Stt { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Answers { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Question { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string QuestionType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         //Events
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
@@ -140,10 +148,7 @@ namespace CRUDWinFormsMVP.Views
         public event EventHandler CancelEvent;
 
         //Methods
-        public void SetPetListBindingSource(BindingSource petList)
-        {
-            dataGridView.DataSource = petList;
-        }
+
 
         //Singleton pattern (Open a single form instance)
         private static FQAView instance;
@@ -163,6 +168,16 @@ namespace CRUDWinFormsMVP.Views
                 instance.BringToFront();
             }
             return instance;
+        }
+
+/*        public void SetFQAListBindingSource(BindingSource fqaList)
+        {
+            dataGridView.DataSource = fqaList;
+        }*/
+
+        public void SetFQAAppListBindingSource(BindingSource fqaAppList)
+        {
+            dataGridView.DataSource = fqaAppList;
         }
     }
 }

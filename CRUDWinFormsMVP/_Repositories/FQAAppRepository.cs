@@ -9,14 +9,14 @@ using CRUDWinFormsMVP.Models;
 
 namespace CRUDWinFormsMVP._Repositories
 {
-    public  class FQARepository: BaseRepository, IFQARepository
+    public  class FQAAppRepository: BaseRepository, IFQAAppRepository
     {
-        public FQARepository(string connectionString)
+        public FQAAppRepository(string connectionString)
         {
             this.connectionString = connectionString;
         }
 
-        public void Add(FQAModel fqaModel)
+        public void Add(FQAAppModel fqaAppModel)
         {
             throw new NotImplementedException();
         }
@@ -26,14 +26,14 @@ namespace CRUDWinFormsMVP._Repositories
             throw new NotImplementedException();
         }
 
-        public void Edit(FQAModel fqaModel)
+        public void Edit(FQAAppModel fqaAppModel)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<FQAModel> GetAll()
+        public IEnumerable<FQAAppModel> GetAll()
         {
-            var fqaList = new List<FQAModel>();
+            var fqaAppList = new List<FQAAppModel>();
             using (var connection = new SqlConnection(connectionString))
             using (var command = new SqlCommand())
             {
@@ -44,19 +44,19 @@ namespace CRUDWinFormsMVP._Repositories
                 {
                     while (reader.Read())
                     {
-                        var fqaModel = new FQAModel();
-                        fqaModel.Id = (int)reader[0];
-                        fqaModel.Type = reader[1].ToString();
-                        fqaModel.Answers = reader[2].ToString();
-                        fqaModel.Stt = (byte)reader[3];
-                        fqaList.Add(fqaModel);
+                        var fqaAppModel = new FQAAppModel();
+                        fqaAppModel.Answers = reader[0].ToString();
+                        fqaAppModel.Question = reader[1].ToString();
+                        fqaAppModel.ID = (int)reader[2];
+                        fqaAppModel.QuestionType = (int)reader[3];
+                        fqaAppList.Add(fqaAppModel);
                     }
                 }
             }
-            return fqaList;
+            return fqaAppList;
         }
 
-        public IEnumerable<FQAModel> GetByValue(string value)
+        public IEnumerable<FQAAppModel> GetByValue(string value)
         {
             throw new NotImplementedException();
         }
