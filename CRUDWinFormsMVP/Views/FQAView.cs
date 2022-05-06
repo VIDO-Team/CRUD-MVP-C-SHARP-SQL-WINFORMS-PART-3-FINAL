@@ -114,6 +114,16 @@ namespace CRUDWinFormsMVP.Views
                     MessageBox.Show(Message);
                 }
             };
+            btnDeleteFQA.Click += delegate
+            {
+                var result = MessageBox.Show("Are you sure you want to delete the selected question?", "Warning",
+                      MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
+            };
         }
 
         private void ClearData()

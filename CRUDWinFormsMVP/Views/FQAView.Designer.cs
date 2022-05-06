@@ -66,6 +66,7 @@ namespace CRUDWinFormsMVP.Views
             this.label7 = new System.Windows.Forms.Label();
             this.textId = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnDeleteFQA = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageFQAList.SuspendLayout();
@@ -121,6 +122,7 @@ namespace CRUDWinFormsMVP.Views
             // 
             // tabPageFQAList
             // 
+            this.tabPageFQAList.Controls.Add(this.btnDeleteFQA);
             this.tabPageFQAList.Controls.Add(this.btnAddQuestion);
             this.tabPageFQAList.Controls.Add(this.dataGridView);
             this.tabPageFQAList.Controls.Add(this.label2);
@@ -482,6 +484,16 @@ namespace CRUDWinFormsMVP.Views
             this.label6.TabIndex = 8;
             this.label6.Text = "ID:";
             // 
+            // btnDeleteFQA
+            // 
+            this.btnDeleteFQA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteFQA.Location = new System.Drawing.Point(668, 170);
+            this.btnDeleteFQA.Name = "btnDeleteFQA";
+            this.btnDeleteFQA.Size = new System.Drawing.Size(198, 30);
+            this.btnDeleteFQA.TabIndex = 9;
+            this.btnDeleteFQA.Text = "Delete";
+            this.btnDeleteFQA.UseVisualStyleBackColor = true;
+            // 
             // FQAView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -547,5 +559,6 @@ namespace CRUDWinFormsMVP.Views
         private System.Windows.Forms.TextBox tbAnswer;
         private System.Windows.Forms.TextBox txtviewans;
         private System.Windows.Forms.Label lbquestionId;
+        private System.Windows.Forms.Button btnDeleteFQA;
     }
 }
