@@ -54,7 +54,7 @@ namespace CRUDWinFormsMVP.Views
             this.label3 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.tabPageAddQuestion = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtviewans = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dgvans = new System.Windows.Forms.DataGridView();
             this.btncancel1 = new System.Windows.Forms.Button();
@@ -65,6 +65,7 @@ namespace CRUDWinFormsMVP.Views
             this.label7 = new System.Windows.Forms.Label();
             this.textId = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.lbquestionId = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageFQAList.SuspendLayout();
@@ -225,6 +226,7 @@ namespace CRUDWinFormsMVP.Views
             // 
             // tabPageFQADetail
             // 
+            this.tabPageFQADetail.Controls.Add(this.lbquestionId);
             this.tabPageFQADetail.Controls.Add(this.tbAnswer);
             this.tabPageFQADetail.Controls.Add(this.label10);
             this.tabPageFQADetail.Controls.Add(this.cboxquestiontype1);
@@ -249,7 +251,7 @@ namespace CRUDWinFormsMVP.Views
             this.tbAnswer.Location = new System.Drawing.Point(435, 54);
             this.tbAnswer.Multiline = true;
             this.tbAnswer.Name = "tbAnswer";
-            this.tbAnswer.Size = new System.Drawing.Size(441, 288);
+            this.tbAnswer.Size = new System.Drawing.Size(446, 288);
             this.tbAnswer.TabIndex = 25;
             // 
             // label10
@@ -269,7 +271,7 @@ namespace CRUDWinFormsMVP.Views
             "Equals",
             "Startwith",
             "Contains"});
-            this.cboxquestiontype1.Location = new System.Drawing.Point(260, 168);
+            this.cboxquestiontype1.Location = new System.Drawing.Point(241, 54);
             this.cboxquestiontype1.Name = "cboxquestiontype1";
             this.cboxquestiontype1.Size = new System.Drawing.Size(153, 37);
             this.cboxquestiontype1.TabIndex = 16;
@@ -296,7 +298,7 @@ namespace CRUDWinFormsMVP.Views
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(255, 143);
+            this.label5.Location = new System.Drawing.Point(236, 26);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(139, 25);
             this.label5.TabIndex = 11;
@@ -306,7 +308,7 @@ namespace CRUDWinFormsMVP.Views
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(59, 143);
+            this.label4.Location = new System.Drawing.Point(59, 91);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 25);
             this.label4.TabIndex = 9;
@@ -314,9 +316,10 @@ namespace CRUDWinFormsMVP.Views
             // 
             // txtquestion
             // 
-            this.txtquestion.Location = new System.Drawing.Point(64, 171);
+            this.txtquestion.Location = new System.Drawing.Point(64, 119);
+            this.txtquestion.Multiline = true;
             this.txtquestion.Name = "txtquestion";
-            this.txtquestion.Size = new System.Drawing.Size(154, 34);
+            this.txtquestion.Size = new System.Drawing.Size(349, 160);
             this.txtquestion.TabIndex = 8;
             // 
             // label3
@@ -340,7 +343,7 @@ namespace CRUDWinFormsMVP.Views
             // 
             // tabPageAddQuestion
             // 
-            this.tabPageAddQuestion.Controls.Add(this.textBox1);
+            this.tabPageAddQuestion.Controls.Add(this.txtviewans);
             this.tabPageAddQuestion.Controls.Add(this.label9);
             this.tabPageAddQuestion.Controls.Add(this.dgvans);
             this.tabPageAddQuestion.Controls.Add(this.btncancel1);
@@ -359,13 +362,13 @@ namespace CRUDWinFormsMVP.Views
             this.tabPageAddQuestion.Text = "Add Question";
             this.tabPageAddQuestion.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtviewans
             // 
-            this.textBox1.Location = new System.Drawing.Point(436, 63);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(426, 133);
-            this.textBox1.TabIndex = 24;
+            this.txtviewans.Location = new System.Drawing.Point(436, 63);
+            this.txtviewans.Multiline = true;
+            this.txtviewans.Name = "txtviewans";
+            this.txtviewans.Size = new System.Drawing.Size(426, 133);
+            this.txtviewans.TabIndex = 24;
             // 
             // label9
             // 
@@ -414,7 +417,7 @@ namespace CRUDWinFormsMVP.Views
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(262, 141);
+            this.label8.Location = new System.Drawing.Point(250, 35);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(139, 25);
             this.label8.TabIndex = 18;
@@ -427,23 +430,24 @@ namespace CRUDWinFormsMVP.Views
             "Equals",
             "Startwith",
             "Contains"});
-            this.cboxquestiontype.Location = new System.Drawing.Point(267, 169);
+            this.cboxquestiontype.Location = new System.Drawing.Point(255, 60);
             this.cboxquestiontype.Name = "cboxquestiontype";
             this.cboxquestiontype.Size = new System.Drawing.Size(153, 33);
             this.cboxquestiontype.TabIndex = 17;
             // 
             // textquestion
             // 
-            this.textquestion.Location = new System.Drawing.Point(81, 172);
+            this.textquestion.Location = new System.Drawing.Point(83, 135);
+            this.textquestion.Multiline = true;
             this.textquestion.Name = "textquestion";
-            this.textquestion.Size = new System.Drawing.Size(154, 30);
+            this.textquestion.Size = new System.Drawing.Size(336, 138);
             this.textquestion.TabIndex = 11;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(76, 144);
+            this.label7.Location = new System.Drawing.Point(78, 107);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(97, 25);
             this.label7.TabIndex = 10;
@@ -466,6 +470,17 @@ namespace CRUDWinFormsMVP.Views
             this.label6.Size = new System.Drawing.Size(37, 25);
             this.label6.TabIndex = 8;
             this.label6.Text = "ID:";
+            // 
+            // lbquestionId
+            // 
+            this.lbquestionId.AutoSize = true;
+            this.lbquestionId.Location = new System.Drawing.Point(635, 3);
+            this.lbquestionId.Name = "lbquestionId";
+            this.lbquestionId.Size = new System.Drawing.Size(26, 29);
+            this.lbquestionId.TabIndex = 26;
+            this.lbquestionId.Text = "0";
+            this.lbquestionId.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lbquestionId.Visible = false;
             // 
             // FQAView
             // 
@@ -530,6 +545,7 @@ namespace CRUDWinFormsMVP.Views
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbAnswer;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtviewans;
+        private System.Windows.Forms.Label lbquestionId;
     }
 }

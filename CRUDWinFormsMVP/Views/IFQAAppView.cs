@@ -13,6 +13,7 @@ namespace CRUDWinFormsMVP.Views
         string Answer { get; set; }
         string Question { get; set; }
         string Id { get; set; }
+        string QuestionId { get; set; }
         string QuestionType { get; set; }
 
         string SearchValue { get; set; }

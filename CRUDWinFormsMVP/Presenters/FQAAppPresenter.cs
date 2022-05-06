@@ -62,6 +62,8 @@ namespace CRUDWinFormsMVP.Presenters
             }
             
         }
+
+
         private void AddNewPet(object sender, EventArgs e)
         {
             view.IsEdit = false;          
@@ -82,6 +84,7 @@ namespace CRUDWinFormsMVP.Presenters
             model.Question = view.Question;
             model.ID = Convert.ToInt32(view.Id);
             model.QuestionType = Convert.ToByte(view.QuestionType);
+            model.QuestionId = Convert.ToInt32(view.QuestionId);
             try
             {
                 new Common.ModelDataValidation().Validate(model);
@@ -111,7 +114,7 @@ namespace CRUDWinFormsMVP.Presenters
             view.Answer = "0";
             view.Question = "";
             view.Id = "";
-            view.QuestionType = "";            
+            view.QuestionType = "0";            
         }
 
         private void CancelAction(object sender, EventArgs e)

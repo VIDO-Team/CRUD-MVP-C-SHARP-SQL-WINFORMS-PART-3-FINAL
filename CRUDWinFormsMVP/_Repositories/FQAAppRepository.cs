@@ -87,6 +87,7 @@ namespace CRUDWinFormsMVP._Repositories
                         fqaAppModel.Question = reader[1].ToString();
                         fqaAppModel.ID = (int)reader[2];
                         fqaAppModel.QuestionType = (int)reader[3];
+                        fqaAppModel.QuestionId = (int)reader[4];
                         fqaAppList.Add(fqaAppModel);
                     }
                 }
@@ -119,6 +120,7 @@ namespace CRUDWinFormsMVP._Repositories
                         fqaAppModel.Question = reader[1].ToString();
                         fqaAppModel.ID = (int)reader[2];
                         fqaAppModel.QuestionType = (int)reader[3];
+                        fqaAppModel.QuestionId = (int)reader[4];
                         faqAppList.Add(fqaAppModel);
                     }
                 }
