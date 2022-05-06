@@ -35,12 +35,36 @@ namespace CRUDWinFormsMVP._Repositories
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"usp_FQA_Delete";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@pFQAId", SqlDbType.Int).Value = id;
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
         }
 
         public void Edit(FQAAppModel fqaAppModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"usp_FQA_Edit";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@pFQAId", SqlDbType.Int).Value = fqaAppModel.ID;
+                command.Parameters.Add("@pAnswer ", SqlDbType.NVarChar).Value = fqaAppModel.Answers;
+                command.Parameters.Add("@pQuestionID", SqlDbType.Int).Value = fqaAppModel.QuestionId;
+                command.Parameters.Add("@pQuestion", SqlDbType.NVarChar).Value = fqaAppModel.Question;
+                command.Parameters.Add("@pQuestionType ", SqlDbType.Int).Value = fqaAppModel.QuestionType;
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
         }
 
         public IEnumerable<FQAAppModel> GetAll()
