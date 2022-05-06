@@ -10,39 +10,24 @@ namespace CRUDWinFormsMVP.Models
 {
     public class FQADetailsModel
     {
-        //Fields
-        private int id;
-        private int fqaId;
+        
         private string question;
         private int questionType;
 
         //Properties - Validations
-        [DisplayName("ID")]
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        [DisplayName("FQA ID")]
-        public int FQAId
-        {
-            get { return FQAId; }
-            set { FQAId = value; }
-        }
 
         [DisplayName("Question")]
         public string Question
         {
-            get { return Question; }
-            set { Question = value; }
+            get { return question; }
+            set { question = value; }
         }
         
         [DisplayName("Question Type")]
         public int QuestionType
         {
-            get { return QuestionType; }
-            set { QuestionType = value; }
+            get { return questionType; }
+            set { questionType = value; }
         }
     }
 }

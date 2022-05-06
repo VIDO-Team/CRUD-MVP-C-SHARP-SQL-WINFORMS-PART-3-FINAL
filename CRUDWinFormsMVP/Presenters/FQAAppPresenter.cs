@@ -15,12 +15,15 @@ namespace CRUDWinFormsMVP.Presenters
         private IFQAAppView view;
         private IFQAAppRepository repository;
         private BindingSource fqaAppsBindingSource;
+        private BindingSource fqaDetailsBindingSource;
         private IEnumerable<FQAAppModel> fqaAppList;
+        private IEnumerable<FQADetailsModel> fqaDetails;
 
         //Constructor
         public FQAAppPresenter(IFQAAppView view, IFQAAppRepository repository)
         {
             this.fqaAppsBindingSource = new BindingSource();
+            this.fqaDetailsBindingSource = new BindingSource();
             this.view = view;
             this.repository = repository;
             //Subscribe event handler methods to view events
@@ -30,12 +33,35 @@ namespace CRUDWinFormsMVP.Presenters
             this.view.DeleteEvent += DeleteSelectedPet;
             this.view.SaveEvent += SavePet;
             this.view.CancelEvent += CancelAction;
+            this.view.AddQuestionEvent += AddQuestion;
+            this.view.AddFQADetails += AddFQADetails;
             //Set pets bindind source
             this.view.SetFQAAppListBindingSource(fqaAppsBindingSource);
             //Load pet list view
             LoadAllFQAAppList();
             //Show view
             this.view.Show();
+        }
+
+        private void AddFQADetails(object sender, EventArgs e)
+        {
+            int fQAId = Int32.Parse(this.view.AddQuestionId);
+            FQADetailsModel model = new FQADetailsModel();
+            model.Question = this.view.AddQuestion;
+            model.QuestionType = Int32.Parse( this.view.AddQuestionType);
+            repository.AddFQADetails(fQAId, model);
+            view.Message = "AddFQADetails added sucessfully";
+            view.IsSuccessful = true;
+            LoadAllFQAAppList();
+
+        }
+
+        private void AddQuestion(object sender, EventArgs e)
+        {
+            int fQAId = Int32.Parse(this.view.AddQuestionId);
+            fqaDetails = repository.GetQuestion(fQAId);
+            fqaDetailsBindingSource.DataSource = fqaDetails;
+            this.view.SetQuestionListBindingSource(fqaDetailsBindingSource);
         }
 
         //Methods
@@ -62,6 +88,8 @@ namespace CRUDWinFormsMVP.Presenters
             }
             
         }
+
+
         private void AddNewPet(object sender, EventArgs e)
         {
             view.IsEdit = false;          
@@ -82,6 +110,7 @@ namespace CRUDWinFormsMVP.Presenters
             model.Question = view.Question;
             model.ID = Convert.ToInt32(view.Id);
             model.QuestionType = Convert.ToByte(view.QuestionType);
+            model.QuestionId = Convert.ToInt32(view.QuestionId);
             try
             {
                 new Common.ModelDataValidation().Validate(model);
@@ -111,7 +140,7 @@ namespace CRUDWinFormsMVP.Presenters
             view.Answer = "0";
             view.Question = "";
             view.Id = "";
-            view.QuestionType = "";            
+            view.QuestionType = "0";            
         }
 
         private void CancelAction(object sender, EventArgs e)
@@ -123,7 +152,7 @@ namespace CRUDWinFormsMVP.Presenters
             try
             {
                 var fqqApp = (FQAAppModel)fqaAppsBindingSource.Current;
-                repository.Delete(fqqApp.ID);
+                repository.Delete(fqqApp.QuestionId);
                 view.IsSuccessful = true;
                 view.Message = "Pet deleted successfully";
                 LoadAllFQAAppList();

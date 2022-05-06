@@ -30,8 +30,8 @@ namespace CRUDWinFormsMVP.Views
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnPets = new System.Windows.Forms.Button();
             this.btnFQA = new System.Windows.Forms.Button();
+            this.btnPets = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,41 +41,46 @@ namespace CRUDWinFormsMVP.Views
             this.panel1.Controls.Add(this.btnPets);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 565);
+            this.panel1.Size = new System.Drawing.Size(267, 695);
             this.panel1.TabIndex = 0;
+            // 
+            // btnFQA
+            // 
+            this.btnFQA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFQA.Location = new System.Drawing.Point(3, 15);
+            this.btnFQA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFQA.Name = "btnFQA";
+            this.btnFQA.Size = new System.Drawing.Size(263, 46);
+            this.btnFQA.TabIndex = 1;
+            this.btnFQA.Text = "FQA";
+            this.btnFQA.UseVisualStyleBackColor = true;
             // 
             // btnPets
             // 
             this.btnPets.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPets.Location = new System.Drawing.Point(3, 54);
+            this.btnPets.Location = new System.Drawing.Point(4, 66);
+            this.btnPets.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPets.Name = "btnPets";
-            this.btnPets.Size = new System.Drawing.Size(197, 37);
+            this.btnPets.Size = new System.Drawing.Size(263, 46);
             this.btnPets.TabIndex = 0;
             this.btnPets.Text = "Pets";
             this.btnPets.UseVisualStyleBackColor = true;
             this.btnPets.Visible = false;
             // 
-            // btnFQA
-            // 
-            this.btnFQA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFQA.Location = new System.Drawing.Point(2, 12);
-            this.btnFQA.Name = "btnFQA";
-            this.btnFQA.Size = new System.Drawing.Size(197, 37);
-            this.btnFQA.TabIndex = 1;
-            this.btnFQA.Text = "FQA";
-            this.btnFQA.UseVisualStyleBackColor = true;
-            // 
             // MainView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1213, 565);
+            this.ClientSize = new System.Drawing.Size(1617, 695);
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainView";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
