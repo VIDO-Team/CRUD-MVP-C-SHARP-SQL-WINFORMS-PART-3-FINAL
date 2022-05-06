@@ -18,100 +18,89 @@ namespace CRUDWinFormsMVP._Repositories
 
         public void Add(FQAAppModel fqaAppModel)
         {
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
             {
-                var fqaAppList = new List<FQAAppModel>();
-                using (var connection = new SqlConnection(connectionString))
-                using (var command = new SqlCommand("ProcedureName", connection)
-                {
-                    CommandType = CommandType.StoredProcedure
-                })
-                {
-                    connection.Open();
-                    command.Connection = connection;
-
-                    command.CommandText = "Select * from FAQApp order by Id desc";
-
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            var fqaAppModel = new FQAAppModel();
-                            fqaAppModel.Answers = reader[0].ToString();
-                            fqaAppModel.Question = reader[1].ToString();
-                            fqaAppModel.ID = (int)reader[2];
-                            fqaAppModel.QuestionType = (int)reader[3];
-                            fqaAppList.Add(fqaAppModel);
-                        }
-                    }
-                }
-                return fqaAppList;
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"usp_FQA_Add";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@pAnswer", SqlDbType.NVarChar).Value = fqaAppModel.Answers;
+                command.Parameters.Add("@pQuestion", SqlDbType.NVarChar).Value = fqaAppModel.Question;
+                command.Parameters.Add("@pQuestionType", SqlDbType.Int).Value = fqaAppModel.QuestionType;
+                command.ExecuteNonQuery();
+                connection.Close();
             }
         }
 
-            public void Edit(FQAAppModel fqaAppModel)
-            {
-                throw new NotImplementedException();
-            }
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
 
-            public IEnumerable<FQAAppModel> GetAll()
-            {
-                var fqaAppList = new List<FQAAppModel>();
-                using (var connection = new SqlConnection(connectionString))
-                using (var command = new SqlCommand())
+        public void Edit(FQAAppModel fqaAppModel)
+        {
+            throw new NotImplementedException();
+        }
 
+        public IEnumerable<FQAAppModel> GetAll()
+        {
+            var fqaAppList = new List<FQAAppModel>();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
             {
-                    connection.Open();
-                    command.Connection = connection;
+                connection.Open();
+                command.Connection = connection;
                     
-                    command.CommandText = "Select * from FAQApp order by Id desc";
+                command.CommandText = "Select * from FAQApp order by Id desc";
 
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            var fqaAppModel = new FQAAppModel();
-                            fqaAppModel.Answers = reader[0].ToString();
-                            fqaAppModel.Question = reader[1].ToString();
-                            fqaAppModel.ID = (int)reader[2];
-                            fqaAppModel.QuestionType = (int)reader[3];
-                            fqaAppList.Add(fqaAppModel);
-                        }
-                    }
-                }
-                return fqaAppList;
-            }
-
-            public IEnumerable<FQAAppModel> GetByValue(string value)
-            {
-                var faqAppList = new List<FQAAppModel>();
-                string answers = value;
-                string question = value;
-                using (var connection = new SqlConnection(connectionString))
-                using (var command = new SqlCommand())
+                using (var reader = command.ExecuteReader())
                 {
-                    connection.Open();
-                    command.Connection = connection;
-                    command.CommandText = @"Select *from FAQApp
-                                        where Answers like @answers+'%' or Question like @question+'%' 
-                                        order by Id desc";
-                    command.Parameters.Add("@answers", SqlDbType.NVarChar).Value = answers;
-                    command.Parameters.Add("@question", SqlDbType.NVarChar).Value = question;
-
-                    using (var reader = command.ExecuteReader())
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            var fqaAppModel = new FQAAppModel();
-                            fqaAppModel.Answers = reader[0].ToString();
-                            fqaAppModel.Question = reader[1].ToString();
-                            fqaAppModel.ID = (int)reader[2];
-                            fqaAppModel.QuestionType = (int)reader[3];
-                            faqAppList.Add(fqaAppModel);
-                        }
+                        var fqaAppModel = new FQAAppModel();
+                        fqaAppModel.Answers = reader[0].ToString();
+                        fqaAppModel.Question = reader[1].ToString();
+                        fqaAppModel.ID = (int)reader[2];
+                        fqaAppModel.QuestionType = (int)reader[3];
+                        fqaAppList.Add(fqaAppModel);
                     }
                 }
-                return faqAppList;
             }
+            return fqaAppList;
+        }
+
+        public IEnumerable<FQAAppModel> GetByValue(string value)
+        {
+            var faqAppList = new List<FQAAppModel>();
+            string answers = value;
+            string question = value;
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"Select *from FAQApp
+                                    where Answers like @answers+'%' or Question like @question+'%' 
+                                    order by Id desc";
+                command.Parameters.Add("@answers", SqlDbType.NVarChar).Value = answers;
+                command.Parameters.Add("@question", SqlDbType.NVarChar).Value = question;
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var fqaAppModel = new FQAAppModel();
+                        fqaAppModel.Answers = reader[0].ToString();
+                        fqaAppModel.Question = reader[1].ToString();
+                        fqaAppModel.ID = (int)reader[2];
+                        fqaAppModel.QuestionType = (int)reader[3];
+                        faqAppList.Add(fqaAppModel);
+                    }
+                }
+            }
+            return faqAppList;
+        }
             //...
         }
     }
