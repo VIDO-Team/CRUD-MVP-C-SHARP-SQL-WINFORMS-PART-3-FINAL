@@ -154,13 +154,13 @@ namespace CRUDWinFormsMVP.Presenters
                 var fqqApp = (FQAAppModel)fqaAppsBindingSource.Current;
                 repository.Delete(fqqApp.QuestionId);
                 view.IsSuccessful = true;
-                view.Message = "Pet deleted successfully";
+                view.Message = "FAQQuestion deleted successfully";
                 LoadAllFQAAppList();
             }
             catch (Exception ex)
             {
                 view.IsSuccessful = false;
-                view.Message = "An error ocurred, could not delete pet";
+                view.Message = "An error ocurred, could not delete FAQQuestion";
             }
         }
 
