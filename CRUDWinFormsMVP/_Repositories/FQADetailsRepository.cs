@@ -18,17 +18,51 @@ namespace CRUDWinFormsMVP._Repositories
 
         public void Add(FQADetailsModel fqaAppModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"usp_FQA_Add";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@FQAId", SqlDbType.Int).Value = fqaAppModel.FQAId;
+                command.Parameters.Add("@pQuestion", SqlDbType.NVarChar).Value = fqaAppModel.Question;
+                command.Parameters.Add("@pQuestionType", SqlDbType.Int).Value = fqaAppModel.QuestionType;
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"usp_FQA_Delete";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@pFQAId", SqlDbType.Int).Value = id;
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
         }
 
         public void Edit(FQADetailsModel fqaAppModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"usp_FQA_Edit";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@pFQAId", SqlDbType.Int).Value = fqaAppModel.FQAId;
+                command.Parameters.Add("@pQuestion", SqlDbType.NVarChar).Value = fqaAppModel.Question;
+                command.Parameters.Add("@pQuestionType ", SqlDbType.Int).Value = fqaAppModel.QuestionType;
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
         }
 
         public IEnumerable<FQADetailsModel> GetAll()

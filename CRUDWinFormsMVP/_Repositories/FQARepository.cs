@@ -9,14 +9,14 @@ using CRUDWinFormsMVP.Models;
 
 namespace CRUDWinFormsMVP._Repositories
 {
-    public class FQAAppRepository : BaseRepository, IFQAAppRepository
+    public  class FQARepository : BaseRepository, IFQARepository
     {
-        public FQAAppRepository(string connectionString)
+        public FQARepository(string connectionString)
         {
             this.connectionString = connectionString;
         }
 
-        public void Add(FQAAppModel fqaAppModel)
+        public void Add(FQAModel fqaAppModel)
         {
             using (var connection = new SqlConnection(connectionString))
             using (var command = new SqlCommand())
@@ -25,9 +25,9 @@ namespace CRUDWinFormsMVP._Repositories
                 command.Connection = connection;
                 command.CommandText = @"usp_FQA_Add";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@pAnswer", SqlDbType.NVarChar).Value = fqaAppModel.Answers;
-                command.Parameters.Add("@pQuestion", SqlDbType.NVarChar).Value = fqaAppModel.Question;
-                command.Parameters.Add("@pQuestionType", SqlDbType.Int).Value = fqaAppModel.QuestionType;
+                command.Parameters.Add("@pType", SqlDbType.NVarChar).Value = fqaAppModel.Type;
+                command.Parameters.Add("@pAnswers", SqlDbType.NVarChar).Value = fqaAppModel.Answers;
+                command.Parameters.Add("@pStt", SqlDbType.Int).Value = fqaAppModel.Stt;
                 command.ExecuteNonQuery();
                 connection.Close();
             }
@@ -42,13 +42,13 @@ namespace CRUDWinFormsMVP._Repositories
                 command.Connection = connection;
                 command.CommandText = @"usp_FQA_Delete";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@pQuestionId", SqlDbType.Int).Value = id;
+                command.Parameters.Add("@pId", SqlDbType.Int).Value = id;
                 command.ExecuteNonQuery();
                 connection.Close();
             }
         }
 
-        public void Edit(FQAAppModel fqaAppModel)
+        public void Edit(FQAModel fqaAppModel)
         {
             using (var connection = new SqlConnection(connectionString))
             using (var command = new SqlCommand())
@@ -57,36 +57,32 @@ namespace CRUDWinFormsMVP._Repositories
                 command.Connection = connection;
                 command.CommandText = @"usp_FQA_Edit";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@pFQAId", SqlDbType.Int).Value = fqaAppModel.ID;
-                command.Parameters.Add("@pAnswer ", SqlDbType.NVarChar).Value = fqaAppModel.Answers;
-                command.Parameters.Add("@pQuestionID", SqlDbType.Int).Value = fqaAppModel.QuestionId;
-                command.Parameters.Add("@pQuestion", SqlDbType.NVarChar).Value = fqaAppModel.Question;
-                command.Parameters.Add("@pQuestionType ", SqlDbType.Int).Value = fqaAppModel.QuestionType;
+                command.Parameters.Add("@pType", SqlDbType.Int).Value = fqaAppModel.Type;
+                command.Parameters.Add("@pAnswers", SqlDbType.NVarChar).Value = fqaAppModel.Answers;
+                command.Parameters.Add("@pStt ", SqlDbType.Int).Value = fqaAppModel.Stt;
                 command.ExecuteNonQuery();
                 connection.Close();
             }
         }
 
-        public IEnumerable<FQAAppModel> GetAll()
+        public IEnumerable<FQAModel> GetAll()
         {
-            var fqaAppList = new List<FQAAppModel>();
+            var fqaAppList = new List<FQAModel>();
             using (var connection = new SqlConnection(connectionString))
             using (var command = new SqlCommand())
             {
                 connection.Open();
                 command.Connection = connection;
-                    
-                command.CommandText = "Select * from FAQApp order by Id desc";
-
+                command.CommandText = "Select * from FQADetails order by Id desc";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        var fqaAppModel = new FQAAppModel();
-                        fqaAppModel.Answers = reader[0].ToString();
-                        fqaAppModel.Question = reader[1].ToString();
-                        fqaAppModel.ID = (int)reader[2];
-                        fqaAppModel.QuestionType = (int)reader[3];
+                        var fqaAppModel = new FQAModel();
+                        fqaAppModel.Id = (int)reader[0];
+                        fqaAppModel.Type = reader[1].ToString();
+                        fqaAppModel.Answers = reader[2].ToString();
+                        fqaAppModel.Stt = (byte)reader[3];
                         fqaAppList.Add(fqaAppModel);
                     }
                 }
@@ -94,37 +90,37 @@ namespace CRUDWinFormsMVP._Repositories
             return fqaAppList;
         }
 
-        public IEnumerable<FQAAppModel> GetByValue(string value)
+        public IEnumerable<FQAModel> GetByValue(string value)
         {
-            var faqAppList = new List<FQAAppModel>();
-            string answers = value;
+            var fqaAppList = new List<FQAModel>();
+            int fqaId = int.TryParse(value, out _) ? Convert.ToInt32(value) : 0;
             string question = value;
             using (var connection = new SqlConnection(connectionString))
             using (var command = new SqlCommand())
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = @"Select *from FAQApp
-                                    where Answers like @answers+'%' or Question like @question+'%' 
-                                    order by Id desc";
-                command.Parameters.Add("@answers", SqlDbType.NVarChar).Value = answers;
+                command.CommandText = @"Select *from FQADetails
+                                        where FQAId = @fqaId or Question like @question+'%' 
+                                        order by Id desc";
+                command.Parameters.Add("@faqId", SqlDbType.Int).Value = fqaId;
                 command.Parameters.Add("@question", SqlDbType.NVarChar).Value = question;
 
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        var fqaAppModel = new FQAAppModel();
-                        fqaAppModel.Answers = reader[0].ToString();
-                        fqaAppModel.Question = reader[1].ToString();
-                        fqaAppModel.ID = (int)reader[2];
-                        fqaAppModel.QuestionType = (int)reader[3];
-                        faqAppList.Add(fqaAppModel);
+                        var fqaAppModel = new FQAModel();
+                        fqaAppModel.Id = (int)reader[0];
+                        fqaAppModel.Type = reader[1].ToString();
+                        fqaAppModel.Answers = reader[2].ToString();
+                        fqaAppModel.Stt = (byte)reader[3];
+                        fqaAppList.Add(fqaAppModel);
                     }
                 }
             }
-            return faqAppList;
+            return fqaAppList;
         }
-            //...
-        }
+        //...
     }
+}
