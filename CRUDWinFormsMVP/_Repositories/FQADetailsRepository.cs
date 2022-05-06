@@ -25,7 +25,6 @@ namespace CRUDWinFormsMVP._Repositories
                 command.Connection = connection;
                 command.CommandText = @"usp_FQA_Add";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@FQAId", SqlDbType.Int).Value = fqaAppModel.FQAId;
                 command.Parameters.Add("@pQuestion", SqlDbType.NVarChar).Value = fqaAppModel.Question;
                 command.Parameters.Add("@pQuestionType", SqlDbType.Int).Value = fqaAppModel.QuestionType;
                 command.ExecuteNonQuery();
@@ -57,7 +56,6 @@ namespace CRUDWinFormsMVP._Repositories
                 command.Connection = connection;
                 command.CommandText = @"usp_FQA_Edit";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@pFQAId", SqlDbType.Int).Value = fqaAppModel.FQAId;
                 command.Parameters.Add("@pQuestion", SqlDbType.NVarChar).Value = fqaAppModel.Question;
                 command.Parameters.Add("@pQuestionType ", SqlDbType.Int).Value = fqaAppModel.QuestionType;
                 command.ExecuteNonQuery();

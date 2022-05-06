@@ -34,10 +34,10 @@ namespace CRUDWinFormsMVP.Views
             this.btnClose = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageFQAList = new System.Windows.Forms.TabPage();
+            this.btnDeleteFQA = new System.Windows.Forms.Button();
             this.btnAddQuestion = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAddFQA = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -66,7 +66,6 @@ namespace CRUDWinFormsMVP.Views
             this.label7 = new System.Windows.Forms.Label();
             this.textId = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnDeleteFQA = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageFQAList.SuspendLayout();
@@ -126,7 +125,6 @@ namespace CRUDWinFormsMVP.Views
             this.tabPageFQAList.Controls.Add(this.btnAddQuestion);
             this.tabPageFQAList.Controls.Add(this.dataGridView);
             this.tabPageFQAList.Controls.Add(this.label2);
-            this.tabPageFQAList.Controls.Add(this.btnDelete);
             this.tabPageFQAList.Controls.Add(this.btnEdit);
             this.tabPageFQAList.Controls.Add(this.btnAddFQA);
             this.tabPageFQAList.Controls.Add(this.btnSearch);
@@ -139,6 +137,16 @@ namespace CRUDWinFormsMVP.Views
             this.tabPageFQAList.TabIndex = 0;
             this.tabPageFQAList.Text = "FQA list";
             this.tabPageFQAList.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteFQA
+            // 
+            this.btnDeleteFQA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteFQA.Location = new System.Drawing.Point(668, 170);
+            this.btnDeleteFQA.Name = "btnDeleteFQA";
+            this.btnDeleteFQA.Size = new System.Drawing.Size(198, 30);
+            this.btnDeleteFQA.TabIndex = 9;
+            this.btnDeleteFQA.Text = "Delete";
+            this.btnDeleteFQA.UseVisualStyleBackColor = true;
             // 
             // btnAddQuestion
             // 
@@ -175,17 +183,6 @@ namespace CRUDWinFormsMVP.Views
             this.label2.Size = new System.Drawing.Size(128, 25);
             this.label2.TabIndex = 5;
             this.label2.Text = "Search FQA:";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Location = new System.Drawing.Point(668, 335);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(198, 30);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Visible = false;
             // 
             // btnEdit
             // 
@@ -484,16 +481,6 @@ namespace CRUDWinFormsMVP.Views
             this.label6.TabIndex = 8;
             this.label6.Text = "ID:";
             // 
-            // btnDeleteFQA
-            // 
-            this.btnDeleteFQA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeleteFQA.Location = new System.Drawing.Point(668, 170);
-            this.btnDeleteFQA.Name = "btnDeleteFQA";
-            this.btnDeleteFQA.Size = new System.Drawing.Size(198, 30);
-            this.btnDeleteFQA.TabIndex = 9;
-            this.btnDeleteFQA.Text = "Delete";
-            this.btnDeleteFQA.UseVisualStyleBackColor = true;
-            // 
             // FQAView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -527,7 +514,6 @@ namespace CRUDWinFormsMVP.Views
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageFQAList;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAddFQA;
         private System.Windows.Forms.Button btnSearch;
