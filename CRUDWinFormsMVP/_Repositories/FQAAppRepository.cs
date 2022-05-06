@@ -33,6 +33,23 @@ namespace CRUDWinFormsMVP._Repositories
             }
         }
 
+        public void AddFQADetails(int fqaId, FQADetailsModel model)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"usp_FQADetails_Add";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@pFQAId", SqlDbType.Int).Value = fqaId;
+                command.Parameters.Add("@pQuestion", SqlDbType.NVarChar).Value = model.Question;
+                command.Parameters.Add("@pQuestionType", SqlDbType.Int).Value = model.QuestionType;
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
         public void Delete(int id)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -42,7 +59,7 @@ namespace CRUDWinFormsMVP._Repositories
                 command.Connection = connection;
                 command.CommandText = @"usp_FQA_Delete";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@pFQAId", SqlDbType.Int).Value = id;
+                command.Parameters.Add("@pQuestionId", SqlDbType.Int).Value = id;
                 command.ExecuteNonQuery();
                 connection.Close();
             }
@@ -127,6 +144,30 @@ namespace CRUDWinFormsMVP._Repositories
             }
             return faqAppList;
         }
-            //...
+
+        public IEnumerable<FQADetailsModel> GetQuestion(int fqaId)
+        {
+            var fqaAppList = new List<FQADetailsModel>();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "Select * from FQADetails WHERE FQAId=@faqId order by Id desc";
+                command.Parameters.Add("@faqId", SqlDbType.Int).Value = fqaId;
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var fqaAppModel = new FQADetailsModel();
+                        fqaAppModel.Question = reader[2].ToString();
+                        fqaAppModel.QuestionType = (int)reader[3];
+                        fqaAppList.Add(fqaAppModel);
+                    }
+                }
+            }
+            return fqaAppList;
         }
+        //...
+    }
     }

@@ -43,6 +43,7 @@ namespace CRUDWinFormsMVP.Views
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.tabPageFQADetail = new System.Windows.Forms.TabPage();
+            this.lbquestionId = new System.Windows.Forms.Label();
             this.tbAnswer = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cboxquestiontype1 = new System.Windows.Forms.ComboBox();
@@ -56,23 +57,22 @@ namespace CRUDWinFormsMVP.Views
             this.tabPageAddQuestion = new System.Windows.Forms.TabPage();
             this.txtviewans = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dgvans = new System.Windows.Forms.DataGridView();
+            this.dgvQuestions = new System.Windows.Forms.DataGridView();
             this.btncancel1 = new System.Windows.Forms.Button();
-            this.btnadd = new System.Windows.Forms.Button();
+            this.btnAddFQADetails = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.cboxquestiontype = new System.Windows.Forms.ComboBox();
             this.textquestion = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textId = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.lbquestionId = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageFQAList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.tabPageFQADetail.SuspendLayout();
             this.tabPageAddQuestion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvans)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQuestions)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -246,6 +246,17 @@ namespace CRUDWinFormsMVP.Views
             this.tabPageFQADetail.Text = "Add FQA";
             this.tabPageFQADetail.UseVisualStyleBackColor = true;
             // 
+            // lbquestionId
+            // 
+            this.lbquestionId.AutoSize = true;
+            this.lbquestionId.Location = new System.Drawing.Point(635, 3);
+            this.lbquestionId.Name = "lbquestionId";
+            this.lbquestionId.Size = new System.Drawing.Size(26, 29);
+            this.lbquestionId.TabIndex = 26;
+            this.lbquestionId.Text = "0";
+            this.lbquestionId.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lbquestionId.Visible = false;
+            // 
             // tbAnswer
             // 
             this.tbAnswer.Location = new System.Drawing.Point(435, 54);
@@ -345,9 +356,9 @@ namespace CRUDWinFormsMVP.Views
             // 
             this.tabPageAddQuestion.Controls.Add(this.txtviewans);
             this.tabPageAddQuestion.Controls.Add(this.label9);
-            this.tabPageAddQuestion.Controls.Add(this.dgvans);
+            this.tabPageAddQuestion.Controls.Add(this.dgvQuestions);
             this.tabPageAddQuestion.Controls.Add(this.btncancel1);
-            this.tabPageAddQuestion.Controls.Add(this.btnadd);
+            this.tabPageAddQuestion.Controls.Add(this.btnAddFQADetails);
             this.tabPageAddQuestion.Controls.Add(this.label8);
             this.tabPageAddQuestion.Controls.Add(this.cboxquestiontype);
             this.tabPageAddQuestion.Controls.Add(this.textquestion);
@@ -380,18 +391,18 @@ namespace CRUDWinFormsMVP.Views
             this.label9.TabIndex = 23;
             this.label9.Text = "Answer:";
             // 
-            // dgvans
+            // dgvQuestions
             // 
-            this.dgvans.AllowUserToAddRows = false;
-            this.dgvans.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvans.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dgvans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvans.Location = new System.Drawing.Point(436, 202);
-            this.dgvans.Name = "dgvans";
-            this.dgvans.RowHeadersWidth = 51;
-            this.dgvans.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvans.Size = new System.Drawing.Size(426, 135);
-            this.dgvans.TabIndex = 21;
+            this.dgvQuestions.AllowUserToAddRows = false;
+            this.dgvQuestions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvQuestions.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgvQuestions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvQuestions.Location = new System.Drawing.Point(436, 202);
+            this.dgvQuestions.Name = "dgvQuestions";
+            this.dgvQuestions.RowHeadersWidth = 51;
+            this.dgvQuestions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvQuestions.Size = new System.Drawing.Size(426, 135);
+            this.dgvQuestions.TabIndex = 21;
             // 
             // btncancel1
             // 
@@ -403,15 +414,15 @@ namespace CRUDWinFormsMVP.Views
             this.btncancel1.Text = "Cancel";
             this.btncancel1.UseVisualStyleBackColor = true;
             // 
-            // btnadd
+            // btnAddFQADetails
             // 
-            this.btnadd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnadd.Location = new System.Drawing.Point(83, 293);
-            this.btnadd.Name = "btnadd";
-            this.btnadd.Size = new System.Drawing.Size(152, 44);
-            this.btnadd.TabIndex = 19;
-            this.btnadd.Text = "Add";
-            this.btnadd.UseVisualStyleBackColor = true;
+            this.btnAddFQADetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddFQADetails.Location = new System.Drawing.Point(83, 293);
+            this.btnAddFQADetails.Name = "btnAddFQADetails";
+            this.btnAddFQADetails.Size = new System.Drawing.Size(152, 44);
+            this.btnAddFQADetails.TabIndex = 19;
+            this.btnAddFQADetails.Text = "Add";
+            this.btnAddFQADetails.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -471,17 +482,6 @@ namespace CRUDWinFormsMVP.Views
             this.label6.TabIndex = 8;
             this.label6.Text = "ID:";
             // 
-            // lbquestionId
-            // 
-            this.lbquestionId.AutoSize = true;
-            this.lbquestionId.Location = new System.Drawing.Point(635, 3);
-            this.lbquestionId.Name = "lbquestionId";
-            this.lbquestionId.Size = new System.Drawing.Size(26, 29);
-            this.lbquestionId.TabIndex = 26;
-            this.lbquestionId.Text = "0";
-            this.lbquestionId.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.lbquestionId.Visible = false;
-            // 
             // FQAView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -503,7 +503,7 @@ namespace CRUDWinFormsMVP.Views
             this.tabPageFQADetail.PerformLayout();
             this.tabPageAddQuestion.ResumeLayout(false);
             this.tabPageAddQuestion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvans)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQuestions)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -534,14 +534,14 @@ namespace CRUDWinFormsMVP.Views
         private System.Windows.Forms.ComboBox cboxquestiontype1;
         private System.Windows.Forms.TabPage tabPageAddQuestion;
         private System.Windows.Forms.Button btncancel1;
-        private System.Windows.Forms.Button btnadd;
+        private System.Windows.Forms.Button btnAddFQADetails;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cboxquestiontype;
         private System.Windows.Forms.TextBox textquestion;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textId;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dgvans;
+        private System.Windows.Forms.DataGridView dgvQuestions;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbAnswer;

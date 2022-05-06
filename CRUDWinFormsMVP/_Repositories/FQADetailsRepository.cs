@@ -31,7 +31,7 @@ namespace CRUDWinFormsMVP._Repositories
             throw new NotImplementedException();
         }
 
-        public IEnumerable<FQADetailsModel> GetAll()
+        public IEnumerable<FQADetailsModel> GetAll(int fqaId)
         {
             var fqaAppList = new List<FQADetailsModel>();
             using (var connection = new SqlConnection(connectionString))
@@ -39,14 +39,13 @@ namespace CRUDWinFormsMVP._Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "Select * from FQADetails order by Id desc";
+                command.CommandText = "Select * from FQADetails WHERE FQAId=@faqId order by Id desc";
+                command.Parameters.Add("@faqId", SqlDbType.Int).Value = fqaId;
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         var fqaAppModel = new FQADetailsModel();
-                        fqaAppModel.Id = (int)reader[0];
-                        fqaAppModel.FQAId = (int)reader[1];
                         fqaAppModel.Question = reader[2].ToString();
                         fqaAppModel.QuestionType = (int)reader[3];
                         fqaAppList.Add(fqaAppModel);
@@ -54,6 +53,11 @@ namespace CRUDWinFormsMVP._Repositories
                 }
             }
             return fqaAppList;
+        }
+
+        public IEnumerable<FQADetailsModel> GetAll()
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerable<FQADetailsModel> GetByValue(string value)
@@ -77,8 +81,6 @@ namespace CRUDWinFormsMVP._Repositories
                     while (reader.Read())
                     {
                         var fqaAppModel = new FQADetailsModel();
-                        fqaAppModel.Id = (int)reader[0];
-                        fqaAppModel.FQAId = (int)reader[1];
                         fqaAppModel.Question = reader[2].ToString();
                         fqaAppModel.QuestionType = (int)reader[3];
                         fqaAppList.Add(fqaAppModel);

@@ -49,12 +49,20 @@ namespace CRUDWinFormsMVP.Views
             {
                 textId.Text = dataGridView.CurrentRow.Cells[2].Value.ToString();
                 txtviewans.Text = dataGridView.CurrentRow.Cells[0].Value.ToString();
-                textquestion.Text = dataGridView.CurrentRow.Cells[1].Value.ToString();
-                cboxquestiontype.SelectedIndex = (int)dataGridView.CurrentRow.Cells[3].Value;
-                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                AddQuestionEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabPageFQAList);
                 tabControl1.TabPages.Add(tabPageAddQuestion);
                 tabPageAddQuestion.Text = "Add Question";
+            };
+            btnAddFQADetails.Click += delegate
+            {
+                AddFQADetails?.Invoke(this, EventArgs.Empty);
+                if (isSuccessful)
+                {
+                    tabControl1.TabPages.Remove(tabPageAddQuestion);
+                    tabControl1.TabPages.Add(tabPageFQAList);
+                }
+                MessageBox.Show(Message);
             };
             //Edit
             btnEdit.Click += delegate
@@ -142,6 +150,7 @@ namespace CRUDWinFormsMVP.Views
         }
 
         public string Id { get { return txtId.Text; } set { txtId.Text = value; } }
+        public string AddQuestionId { get { return textId.Text; } set { textId.Text = value; } }
         public string QuestionId { get { return lbquestionId.Text; } set { lbquestionId.Text = value; } }
         public string Type { get { return cboxquestiontype.Text; } set { cboxquestiontype.Text = value; } }
         public string Answer { get { return tbAnswer.Text; } set { tbAnswer.Text = value; } }
@@ -149,6 +158,9 @@ namespace CRUDWinFormsMVP.Views
         public string Answers { get { return tbAnswer.Text; } set { tbAnswer.Text = value; } }
         public string Question { get { return txtquestion.Text; } set { txtquestion.Text = value; } }
         public string QuestionType { get { return cboxquestiontype1.SelectedIndex.ToString(); } set { int index = Int32.Parse(value); cboxquestiontype1.SelectedIndex = index; } }
+        public string AddQuestion { get { return textquestion.Text; } set { textquestion.Text = value; } }
+        public string AddQuestionType { get { return cboxquestiontype.SelectedIndex.ToString(); } set { int index = Int32.Parse(value); cboxquestiontype.SelectedIndex = index; } }
+
 
         string IFQAAppView.QuestionId { get {return lbquestionId.Text; } set { lbquestionId.Text = value; } }
         
@@ -160,6 +172,9 @@ namespace CRUDWinFormsMVP.Views
         public event EventHandler DeleteEvent;
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
+        public event EventHandler AddQuestionEvent;
+        public event EventHandler CancelQuestionEvent;
+        public event EventHandler AddFQADetails;
 
         //Methods
 
@@ -195,6 +210,12 @@ namespace CRUDWinFormsMVP.Views
             //dgvans.DataSource = fqaAppList;
 
 
+        }
+
+        public void SetQuestionListBindingSource(BindingSource fqaDetails)
+        {
+            dgvQuestions.DataSource = fqaDetails;
+            //dgvQuestions.Columns.RemoveAt(0);
         }
     }
 }
