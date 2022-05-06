@@ -9,14 +9,14 @@ using CRUDWinFormsMVP.Models;
 
 namespace CRUDWinFormsMVP._Repositories
 {
-    public  class FQADetailsRepository : BaseRepository, IFQADetailsRepository
+    public  class FQARepository : BaseRepository, IFQARepository
     {
-        public FQADetailsRepository(string connectionString)
+        public FQARepository(string connectionString)
         {
             this.connectionString = connectionString;
         }
 
-        public void Add(FQADetailsModel fqaAppModel)
+        public void Add(FQAModel fqaAppModel)
         {
             using (var connection = new SqlConnection(connectionString))
             using (var command = new SqlCommand())
@@ -25,9 +25,9 @@ namespace CRUDWinFormsMVP._Repositories
                 command.Connection = connection;
                 command.CommandText = @"usp_FQA_Add";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@FQAId", SqlDbType.Int).Value = fqaAppModel.FQAId;
-                command.Parameters.Add("@pQuestion", SqlDbType.NVarChar).Value = fqaAppModel.Question;
-                command.Parameters.Add("@pQuestionType", SqlDbType.Int).Value = fqaAppModel.QuestionType;
+                command.Parameters.Add("@pType", SqlDbType.NVarChar).Value = fqaAppModel.Type;
+                command.Parameters.Add("@pAnswers", SqlDbType.NVarChar).Value = fqaAppModel.Answers;
+                command.Parameters.Add("@pStt", SqlDbType.Int).Value = fqaAppModel.Stt;
                 command.ExecuteNonQuery();
                 connection.Close();
             }
@@ -42,13 +42,13 @@ namespace CRUDWinFormsMVP._Repositories
                 command.Connection = connection;
                 command.CommandText = @"usp_FQA_Delete";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@pFQAId", SqlDbType.Int).Value = id;
+                command.Parameters.Add("@pId", SqlDbType.Int).Value = id;
                 command.ExecuteNonQuery();
                 connection.Close();
             }
         }
 
-        public void Edit(FQADetailsModel fqaAppModel)
+        public void Edit(FQAModel fqaAppModel)
         {
             using (var connection = new SqlConnection(connectionString))
             using (var command = new SqlCommand())
@@ -57,31 +57,32 @@ namespace CRUDWinFormsMVP._Repositories
                 command.Connection = connection;
                 command.CommandText = @"usp_FQA_Edit";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@pFQAId", SqlDbType.Int).Value = fqaAppModel.FQAId;
-                command.Parameters.Add("@pQuestion", SqlDbType.NVarChar).Value = fqaAppModel.Question;
-                command.Parameters.Add("@pQuestionType ", SqlDbType.Int).Value = fqaAppModel.QuestionType;
+                command.Parameters.Add("@pType", SqlDbType.Int).Value = fqaAppModel.Type;
+                command.Parameters.Add("@pAnswers", SqlDbType.NVarChar).Value = fqaAppModel.Answers;
+                command.Parameters.Add("@pStt ", SqlDbType.Int).Value = fqaAppModel.Stt;
                 command.ExecuteNonQuery();
                 connection.Close();
             }
         }
 
-        public IEnumerable<FQADetailsModel> GetAll(int fqaId)
+        public IEnumerable<FQAModel> GetAll()
         {
-            var fqaAppList = new List<FQADetailsModel>();
+            var fqaAppList = new List<FQAModel>();
             using (var connection = new SqlConnection(connectionString))
             using (var command = new SqlCommand())
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "Select * from FQADetails WHERE FQAId=@faqId order by Id desc";
-                command.Parameters.Add("@faqId", SqlDbType.Int).Value = fqaId;
+                command.CommandText = "Select * from FQADetails order by Id desc";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        var fqaAppModel = new FQADetailsModel();
-                        fqaAppModel.Question = reader[2].ToString();
-                        fqaAppModel.QuestionType = (int)reader[3];
+                        var fqaAppModel = new FQAModel();
+                        fqaAppModel.Id = (int)reader[0];
+                        fqaAppModel.Type = reader[1].ToString();
+                        fqaAppModel.Answers = reader[2].ToString();
+                        fqaAppModel.Stt = (byte)reader[3];
                         fqaAppList.Add(fqaAppModel);
                     }
                 }
@@ -89,14 +90,9 @@ namespace CRUDWinFormsMVP._Repositories
             return fqaAppList;
         }
 
-        public IEnumerable<FQADetailsModel> GetAll()
+        public IEnumerable<FQAModel> GetByValue(string value)
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<FQADetailsModel> GetByValue(string value)
-        {
-            var fqaAppList = new List<FQADetailsModel>();
+            var fqaAppList = new List<FQAModel>();
             int fqaId = int.TryParse(value, out _) ? Convert.ToInt32(value) : 0;
             string question = value;
             using (var connection = new SqlConnection(connectionString))
@@ -114,9 +110,11 @@ namespace CRUDWinFormsMVP._Repositories
                 {
                     while (reader.Read())
                     {
-                        var fqaAppModel = new FQADetailsModel();
-                        fqaAppModel.Question = reader[2].ToString();
-                        fqaAppModel.QuestionType = (int)reader[3];
+                        var fqaAppModel = new FQAModel();
+                        fqaAppModel.Id = (int)reader[0];
+                        fqaAppModel.Type = reader[1].ToString();
+                        fqaAppModel.Answers = reader[2].ToString();
+                        fqaAppModel.Stt = (byte)reader[3];
                         fqaAppList.Add(fqaAppModel);
                     }
                 }
