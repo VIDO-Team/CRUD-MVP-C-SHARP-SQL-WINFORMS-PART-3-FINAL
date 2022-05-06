@@ -10,7 +10,7 @@ namespace CRUDWinFormsMVP.Views
     public interface IFQAAppView
     {
         //Properties - Fields
-        string Answers { get; set; }
+        string Answer { get; set; }
         string Question { get; set; }
         string Id { get; set; }
         string QuestionType { get; set; }

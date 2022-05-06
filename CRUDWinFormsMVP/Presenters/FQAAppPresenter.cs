@@ -69,7 +69,7 @@ namespace CRUDWinFormsMVP.Presenters
         private void LoadSelectedPetToEdit(object sender, EventArgs e)
         {
             var fqaApp = (FQAAppModel)fqaAppsBindingSource.Current;
-            view.Answers = fqaApp.Answers;
+            view.Answer = fqaApp.Answers;
             view.Question = fqaApp.Question;
             view.Id = fqaApp.ID.ToString();
             view.QuestionType = fqaApp.QuestionType.ToString();
@@ -78,7 +78,7 @@ namespace CRUDWinFormsMVP.Presenters
         private void SavePet(object sender, EventArgs e)
         {
             var model = new FQAAppModel();
-            model.Answers = view.Answers;
+            model.Answers = view.Answer;
             model.Question = view.Question;
             model.ID = Convert.ToInt32(view.Id);
             model.QuestionType = Convert.ToByte(view.QuestionType);
@@ -108,7 +108,7 @@ namespace CRUDWinFormsMVP.Presenters
 
         private void CleanviewFields()
         {
-            view.Answers = "0";
+            view.Answer = "0";
             view.Question = "";
             view.Id = "";
             view.QuestionType = "";            

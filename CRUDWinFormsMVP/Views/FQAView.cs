@@ -23,6 +23,7 @@ namespace CRUDWinFormsMVP.Views
             InitializeComponent();
             AssociateAndRaiseViewEvents();
             tabControl1.TabPages.Remove(tabPageFQADetail);
+            tabControl1.TabPages.Remove(tabPageAddQuestion);
             btnClose.Click += delegate { this.Close(); };
         }
 
@@ -36,12 +37,20 @@ namespace CRUDWinFormsMVP.Views
                       SearchEvent?.Invoke(this, EventArgs.Empty);
               };
             //Add new
-            btnSearchFQA.Click += delegate
+            btnAddFQA.Click += delegate
             {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabPageFQAList);
                 tabControl1.TabPages.Add(tabPageFQADetail);
-                tabPageFQADetail.Text = "Search FQA";
+                tabPageFQADetail.Text = "Add FQA";
+            };
+            btnAddQuestion.Click += delegate
+            {
+                
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPageFQAList);
+                tabControl1.TabPages.Add(tabPageAddQuestion);
+                tabPageAddQuestion.Text = "Add Question";
             };
             //Edit
             btnEdit.Click += delegate
@@ -49,10 +58,11 @@ namespace CRUDWinFormsMVP.Views
                 EditEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabPageFQAList);
                 tabControl1.TabPages.Add(tabPageFQADetail);
-                tabPageFQADetail.Text = "Edit fqa";
+                tabPageFQADetail.Text = "Edit FQA";
             };
+            
             //Save changes
-            btnSearch1.Click += delegate
+            btnSave.Click += delegate
             {
                 SaveEvent?.Invoke(this, EventArgs.Empty);
                 if (isSuccessful)
@@ -69,10 +79,16 @@ namespace CRUDWinFormsMVP.Views
                 tabControl1.TabPages.Remove(tabPageFQADetail);
                 tabControl1.TabPages.Add(tabPageFQAList);
             };
+            btncancel1.Click += delegate
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPageAddQuestion);
+                tabControl1.TabPages.Add(tabPageAddQuestion);
+            };
             //Delete
             btnDelete.Click += delegate
             {               
-                var result = MessageBox.Show("Are you sure you want to delete the selected pet?", "Warning",
+                var result = MessageBox.Show("Are you sure you want to delete the selected question?", "Warning",
                       MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
@@ -101,11 +117,11 @@ namespace CRUDWinFormsMVP.Views
             set { txtquestion.Text = value; }
         }
 
-        //public string PetColour
-        //{
-        //    get { return txtPetColour.Text; }
-        //    set { txtPetColour.Text = value; }
-        //}
+        public string PetColour
+        {
+            get { return txtSearch.Text; }
+            set { tbAnswer.Text = value; }
+        }
 
         public string SearchValue
         {
@@ -131,13 +147,13 @@ namespace CRUDWinFormsMVP.Views
             set { message = value; }
         }
 
-        public string Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Type { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Answer { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Id { get { return txtId.Text; } set { txtId.Text = value; } }
+        public string Type { get { return cboxquestiontype.Text; } set { cboxquestiontype.Text = value; } }   
+        public string Answer { get { return tbAnswer.Text; } set { tbAnswer.Text = value; } }
         public string Stt { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Answers { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Question { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string QuestionType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Answers { get { return tbAnswer.Text; } set { tbAnswer.Text = value; } }
+        public string Question { get {return cboxquestiontype.Text; } set { cboxquestiontype.Text = value; } }
+        public string QuestionType { get  {return cboxquestiontype1.Text; } set { cboxquestiontype.Text = value; } }
 
         //Events
         public event EventHandler SearchEvent;
@@ -178,7 +194,9 @@ namespace CRUDWinFormsMVP.Views
         public void SetFQAAppListBindingSource(BindingSource fqaAppList)
         {
             dataGridView.DataSource = fqaAppList;
+            dgvans.DataSource = fqaAppList;
+            
+            
         }
-
     }
 }
