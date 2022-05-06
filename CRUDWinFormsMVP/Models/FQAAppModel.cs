@@ -15,6 +15,7 @@ namespace CRUDWinFormsMVP.Models
         private string question;
         private int id;
         private int questionType;
+        private int questionId;
 
         //Properties - Validations
         [DisplayName("Answers")]
@@ -43,6 +44,13 @@ namespace CRUDWinFormsMVP.Models
         {
             get { return questionType; }
             set { questionType = value; }
+        }
+
+        [DisplayName("Question Id")]
+        public int  QuestionId
+        {
+            get { return questionId; }
+            set { questionId = value; }
         }
     }
 }

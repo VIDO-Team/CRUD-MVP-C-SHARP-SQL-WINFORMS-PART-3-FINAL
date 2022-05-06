@@ -25,7 +25,7 @@ namespace CRUDWinFormsMVP.Models
         }
 
         [DisplayName("FQA ID")]
-        public string FQAId
+        public int FQAId
         {
             get { return FQAId; }
             set { FQAId = value; }
@@ -39,7 +39,7 @@ namespace CRUDWinFormsMVP.Models
         }
         
         [DisplayName("Question Type")]
-        public byte QuestionType
+        public int QuestionType
         {
             get { return QuestionType; }
             set { QuestionType = value; }
